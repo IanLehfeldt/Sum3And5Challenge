@@ -8,6 +8,11 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
     //threeAndFiveSumChecker();
+        System.out.println("Sum of odd numbers between 1, 100: "+sumOdd(1, 100));
+        System.out.println("Sum of odd numbers between -1, 100: "+sumOdd(-1, 100));
+        System.out.println("Sum of odd numbers between 100,100: "+sumOdd(100, 100));
+        System.out.println("Sum of odd numbers between 100, -100: "+sumOdd(100, -100));
+        System.out.println("Sum of odd numbers between 100, 1000: "+sumOdd(100, 1000));
 
     }
 
@@ -32,10 +37,25 @@ public class Main {
 
     public static boolean isOdd(int number) {
         if(number > 0) {
-            if (number % 2 == 0) {
+            if (number % 2 != 0) {
                 return true;
             }
         }
         return false;
+    }
+
+    public static int sumOdd(int start, int end) {
+        int sumOfOddNumbers = 0;
+
+        if((end >= start) && (start > 0)){
+            for(int i=start; i<=end; i++) {
+                if(isOdd(i)){
+                    sumOfOddNumbers+=i;
+                    //System.out.println(i+" is an odd number, adding to sum ..");
+                }
+            }
+            return sumOfOddNumbers;
+        }
+        return -1;
     }
 }
